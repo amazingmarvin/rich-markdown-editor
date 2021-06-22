@@ -352,7 +352,11 @@ class BlockMenu extends React.Component<Props, State> {
       return defaultPosition;
     }
 
-    const { left } = this.caretPosition;
+    let { left } = this.caretPosition;
+    if (left === 0) {
+      left += startPos.x;
+    }
+
     const { top, bottom, right } = paragraph.node.getBoundingClientRect();
     const margin = 24;
 
