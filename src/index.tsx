@@ -702,6 +702,15 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
     }
   );
 
+  closeAll = () => {
+    this.setState({
+      selectionMenuOpen: false,
+      blockMenuOpen: false,
+      linkMenuOpen: false,
+      blockMenuSearch: "",
+    });
+  };
+
   render() {
     const {
       dir,
