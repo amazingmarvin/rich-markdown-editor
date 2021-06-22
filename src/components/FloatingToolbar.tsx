@@ -164,6 +164,7 @@ function FloatingToolbar(props) {
   return (
     <Portal>
       <Wrapper
+        className="floating-toolbar"
         active={props.active && position.visible}
         ref={menuRef}
         offset={position.offset}
