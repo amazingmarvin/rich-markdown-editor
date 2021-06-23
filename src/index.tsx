@@ -661,6 +661,11 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
     this.view.dispatch(transaction);
   };
 
+  getHTML = (): string => {
+    const markdown = this.value();
+    return renderToHtml(markdown);
+  };
+
   focusAtEnd = () => {
     const selection = Selection.atEnd(this.view.state.doc);
     const transaction = this.view.state.tr.setSelection(selection);
