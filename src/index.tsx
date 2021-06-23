@@ -654,6 +654,13 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
     this.view.focus();
   };
 
+  // Select at start without focusing
+  selectAtStart = () => {
+    const selection = Selection.atStart(this.view.state.doc);
+    const transaction = this.view.state.tr.setSelection(selection);
+    this.view.dispatch(transaction);
+  };
+
   focusAtEnd = () => {
     const selection = Selection.atEnd(this.view.state.doc);
     const transaction = this.view.state.tr.setSelection(selection);
