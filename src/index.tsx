@@ -1221,6 +1221,7 @@ const StyledEditor = styled("div")<{
 
     p {
       white-space: pre-wrap;
+      line-height: 1.2;
     }
 
     > div {
