@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git checkout main
+git checkout master
 git branch -D production || echo "No local production branch"
 git push --delete origin production || echo "No remote production branch"
 git checkout -b production
@@ -11,4 +11,4 @@ rm -f .gitignore.bak
 git add .gitignore dist
 git commit -m "Add dist files."
 git push origin production --force
-git checkout main
+git checkout master
