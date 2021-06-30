@@ -18,6 +18,7 @@ import isMarkActive from "../queries/isMarkActive";
 import isNodeActive from "../queries/isNodeActive";
 import { MenuItem } from "../types";
 import baseDictionary from "../dictionary";
+import UnderlineIcon from "../components/UnderlineIcon";
 
 export default function formattingMenuItems(
   state: EditorState,
@@ -52,6 +53,12 @@ export default function formattingMenuItems(
       tooltip: dictionary.em,
       icon: ItalicIcon,
       active: isMarkActive(schema.marks.em),
+    },
+    {
+      name: "underline",
+      tooltip: dictionary.underline,
+      icon: UnderlineIcon,
+      active: isMarkActive(schema.marks.underline),
     },
     {
       name: "strikethrough",

@@ -56,6 +56,7 @@ export const base = {
   table: "Table",
   tip: "Tip",
   tipNotice: "Tip notice",
+  underline: "Underline",
   warning: "Warning",
   warningNotice: "Warning notice",
 };
