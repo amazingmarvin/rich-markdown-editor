@@ -1,5 +1,6 @@
 import {
   BoldIcon,
+  BulletedListIcon,
   CodeIcon,
   Heading1Icon,
   Heading2Icon,
@@ -113,6 +114,13 @@ export default function formattingMenuItems(
       icon: BlockQuoteIcon,
       active: isNodeActive(schema.nodes.blockquote),
       attrs: { level: 2 },
+      visible: allowBlocks,
+    },
+    {
+      name: "bullet",
+      tooltip: dictionary.bulletList,
+      icon: BulletedListIcon,
+      active: isNodeActive(schema.nodes.bullet_list),
       visible: allowBlocks,
     },
     {
