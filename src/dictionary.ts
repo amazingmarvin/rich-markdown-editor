@@ -34,7 +34,7 @@ export const base = {
   imageUploadError: "Sorry, an error occurred uploading the image",
   imageCaptionPlaceholder: "Write a caption",
   info: "Info",
-  infoNotice: "Info notice",
+  infoNotice: "Info",
   link: "Link",
   linkCopied: "Link copied to clipboard",
   mark: "Highlight",
@@ -54,11 +54,11 @@ export const base = {
   strong: "Bold",
   subheading: "Subheading",
   table: "Table",
-  tip: "Tip",
-  tipNotice: "Tip notice",
+  tip: "Important",
+  tipNotice: "Important",
   underline: "Underline",
   warning: "Warning",
-  warningNotice: "Warning notice",
+  warningNotice: "Warning",
 };
 
 export default base;
