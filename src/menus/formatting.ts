@@ -8,9 +8,7 @@ import {
   ItalicIcon,
   BlockQuoteIcon,
   LinkIcon,
-  StrikethroughIcon,
   InputIcon,
-  HighlightIcon,
 } from "outline-icons";
 import { isInTable } from "prosemirror-tables";
 import { EditorState } from "prosemirror-state";
@@ -60,19 +58,6 @@ export default function formattingMenuItems(
       tooltip: dictionary.underline,
       icon: UnderlineIcon,
       active: isMarkActive(schema.marks.underline),
-    },
-    {
-      name: "strikethrough",
-      tooltip: dictionary.strikethrough,
-      icon: StrikethroughIcon,
-      active: isMarkActive(schema.marks.strikethrough),
-    },
-    {
-      name: "highlight",
-      tooltip: dictionary.mark,
-      icon: HighlightIcon,
-      active: isMarkActive(schema.marks.highlight),
-      visible: !isTemplate,
     },
     {
       name: "code_inline",
