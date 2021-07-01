@@ -19,6 +19,18 @@ import { MenuItem } from "../types";
 import baseDictionary from "../dictionary";
 import UnderlineIcon from "../components/UnderlineIcon";
 
+// Name must be one of:
+// ["doc", "text", "br", "paragraph", "blockquote", "code_block", "code_fence",
+// "checkbox_list", "checkbox_item", "bullet_list", "embed", "list_item",
+// "container_notice", "heading", "hr", "downloadImage", "deleteImage",
+// "alignRight", "alignLeft", "alignCenter", "createImage", "createTable",
+// "setColumnAttr", "addColumnBefore", "addColumnAfter", "deleteColumn",
+// "addRowAfter", "deleteRow", "deleteTable", "toggleHeaderColumn",
+// "toggleHeaderRow", "toggleHeaderCell", "setCellAttr", "fixTables", "td",
+// "th", "tr", "strong", "code_inline", "highlight", "em", "placeholder",
+// "underline", "link", "strikethrough", "ordered_list", "history",
+// "smart_text", "trailing_node", "markdown-paste", "keys", "blockmenu",
+// "empty-placeholder", "maxlength"]
 export default function formattingMenuItems(
   state: EditorState,
   isTemplate: boolean,
@@ -102,7 +114,7 @@ export default function formattingMenuItems(
       visible: allowBlocks,
     },
     {
-      name: "bullet",
+      name: "bullet_list",
       tooltip: dictionary.bulletList,
       icon: BulletedListIcon,
       active: isNodeActive(schema.nodes.bullet_list),
