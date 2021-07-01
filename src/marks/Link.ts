@@ -113,11 +113,11 @@ export default class Link extends Mark {
               return false;
             },
             click: (view, event: MouseEvent) => {
-              // allow opening links in editing mode with the meta/cmd key
+              // Open link unless you shift+click
               if (
                 view.props.editable &&
                 view.props.editable(view.state) &&
-                !isModKey(event)
+                event.shiftKey
               ) {
                 return false;
               }
