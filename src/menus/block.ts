@@ -21,7 +21,7 @@ import baseDictionary from "../dictionary";
 
 const SSR = typeof window === "undefined";
 const isMac = !SSR && window.navigator.platform === "MacIntel";
-const mod = isMac ? "⌘" : "ctrl";
+const mod = isMac ? "Cmd" : "Ctrl";
 
 export default function blockMenuItems(
   dictionary: typeof baseDictionary
@@ -32,7 +32,7 @@ export default function blockMenuItems(
       title: dictionary.h1,
       keywords: "h1 heading1 title",
       icon: Heading1Icon,
-      shortcut: "^ ⇧ 1",
+      shortcut: "Ctrl + ⇧ + 1",
       attrs: { level: 1 },
     },
     {
@@ -40,7 +40,7 @@ export default function blockMenuItems(
       title: dictionary.h2,
       keywords: "h2 heading2",
       icon: Heading2Icon,
-      shortcut: "^ ⇧ 2",
+      shortcut: "Ctrl + ⇧ + 2",
       attrs: { level: 2 },
     },
     {
@@ -48,7 +48,7 @@ export default function blockMenuItems(
       title: dictionary.h3,
       keywords: "h3 heading3",
       icon: Heading3Icon,
-      shortcut: "^ ⇧ 3",
+      shortcut: "Ctrl + ⇧ + 3",
       attrs: { level: 3 },
     },
     {
@@ -59,19 +59,19 @@ export default function blockMenuItems(
       title: dictionary.checkboxList,
       icon: TodoListIcon,
       keywords: "checklist checkbox task",
-      shortcut: "^ ⇧ 7",
+      shortcut: "Ctrl + ⇧ + 7",
     },
     {
       name: "bullet_list",
       title: dictionary.bulletList,
       icon: BulletedListIcon,
-      shortcut: "^ ⇧ 8",
+      shortcut: "Ctrl + ⇧ + 8",
     },
     {
       name: "ordered_list",
       title: dictionary.orderedList,
       icon: OrderedListIcon,
-      shortcut: "^ ⇧ 9",
+      shortcut: "Ctrl + ⇧ + 9",
     },
     {
       name: "separator",
@@ -86,20 +86,20 @@ export default function blockMenuItems(
       name: "blockquote",
       title: dictionary.quote,
       icon: BlockQuoteIcon,
-      shortcut: `${mod} ]`,
+      shortcut: `${mod} + ]`,
     },
     {
       name: "code_block",
       title: dictionary.codeBlock,
       icon: CodeIcon,
-      shortcut: "^ ⇧ \\",
+      shortcut: "Ctrl + ⇧ + \\",
       keywords: "script",
     },
     {
       name: "hr",
       title: dictionary.hr,
       icon: HorizontalRuleIcon,
-      shortcut: `${mod} _`,
+      shortcut: `${mod} + _`,
       keywords: "horizontal rule break line",
     },
     {
@@ -119,7 +119,7 @@ export default function blockMenuItems(
       name: "link",
       title: dictionary.link,
       icon: LinkIcon,
-      shortcut: `${mod} k`,
+      shortcut: `${mod} + k`,
       keywords: "link url uri href",
     },
     {
