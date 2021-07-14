@@ -53,7 +53,7 @@ function BlockMenuItem({
         }
       />
       &nbsp;&nbsp;{title}
-      <Shortcut>{shortcut}</Shortcut>
+      <Shortcut className="block-shortcut">{shortcut}</Shortcut>
     </MenuItem>
   );
 }
