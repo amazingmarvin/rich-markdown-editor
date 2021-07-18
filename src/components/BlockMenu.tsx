@@ -100,11 +100,16 @@ class BlockMenu extends React.Component<Props, State> {
     if (!this.props.isActive) return;
 
     let shortcut = event.key || keyName(event);
-    if (event.altKey) shortcut = "Alt-" + shortcut;
-    if (event.ctrlKey) shortcut = "Ctrl-" + shortcut;
-    if (event.metaKey) shortcut = "Meta-" + shortcut;
-    if (event.shiftKey) shortcut = "Shift-" + shortcut;
-    console.log({ shortcut });
+    if (event.shiftKey) shortcut = "⇧ + " + shortcut;
+    if (event.altKey) shortcut = "Alt + " + shortcut;
+    if (event.ctrlKey) shortcut = "Ctrl + " + shortcut;
+    if (event.metaKey) shortcut = "Cmd + " + shortcut;
+
+    if (shortcut === "Cmd + ⇧ + _") {
+      shortcut = "Cmd + _";
+    } else if (shortcut === "Ctrl + ⇧ + _") {
+      shortcut = "Ctrl + _";
+    }
 
     const items = this.allItems;
     for (const item of items) {
