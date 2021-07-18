@@ -29,14 +29,11 @@ export default class CheckboxItem extends Node {
         },
       ],
       toDOM: node => {
-        const input = document.createElement("input");
-        input.type = "checkbox";
-        input.tabIndex = -1;
-        input.addEventListener("change", this.handleChange);
-
-        if (node.attrs.checked) {
-          input.checked = true;
-        }
+        // This will be styled manually in CSS
+        const div = document.createElement("div");
+        div.className = "checkbox-item";
+        div.tabIndex = -1;
+        div.addEventListener("click", this.handleChange);
 
         return [
           "li",
@@ -49,7 +46,7 @@ export default class CheckboxItem extends Node {
             {
               contentEditable: false,
             },
-            input,
+            div,
           ],
           ["div", 0],
         ];
@@ -64,8 +61,12 @@ export default class CheckboxItem extends Node {
     const result = view.posAtCoords({ top, left });
 
     if (result) {
+      const span = event.target.parentElement;
+      const li = span.parentElement;
+      const wasChecked = li.className.includes("checked");
+
       const transaction = tr.setNodeMarkup(result.inside, undefined, {
-        checked: event.target.checked,
+        checked: !wasChecked,
       });
       view.dispatch(transaction);
     }
