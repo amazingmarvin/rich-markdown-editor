@@ -1,6 +1,7 @@
 import * as React from "react";
 import capitalize from "lodash/capitalize";
 import { Portal } from "react-portal";
+import { keyName } from "w3c-keyname";
 import { EditorView } from "prosemirror-view";
 import { findParentNode } from "prosemirror-utils";
 import styled from "styled-components";
@@ -98,37 +99,21 @@ class BlockMenu extends React.Component<Props, State> {
   handleKeyDown = (event: KeyboardEvent) => {
     if (!this.props.isActive) return;
 
-    const insert = (name: string) => {
-      if (this.insert(name)) {
+    let shortcut = event.key || keyName(event);
+    if (event.altKey) shortcut = "Alt-" + shortcut;
+    if (event.ctrlKey) shortcut = "Ctrl-" + shortcut;
+    if (event.metaKey) shortcut = "Meta-" + shortcut;
+    if (event.shiftKey) shortcut = "Shift-" + shortcut;
+    console.log({ shortcut });
+
+    const items = this.allItems;
+    for (const item of items) {
+      if (item.shortcut && item.shortcut === shortcut) {
+        this.insertItem(item);
         event.preventDefault();
         event.stopPropagation();
+        return;
       }
-    };
-
-    if (event.shiftKey && event.ctrlKey && event.which === 49) {
-      insert("heading1"); // Ctrl + Shift + 1
-    } else if (event.shiftKey && event.ctrlKey && event.which === 50) {
-      insert("heading2"); // Ctrl + Shift + 2
-    } else if (event.shiftKey && event.ctrlKey && event.which === 51) {
-      insert("heading3"); // Ctrl + Shift + 3
-    } else if (event.shiftKey && event.ctrlKey && event.which === 55) {
-      insert("checkbox_list"); // Ctrl + Shift + 7
-    } else if (event.shiftKey && event.ctrlKey && event.which === 56) {
-      insert("bullet_list"); // Ctrl + Shift + 8
-    } else if (event.shiftKey && event.ctrlKey && event.which === 57) {
-      insert("ordered_list"); // Ctrl + Shift + 9
-    } else if (event.shiftKey && event.ctrlKey && event.which === 220) {
-      insert("code_block"); // Ctrl + Shift + \
-    } else if (isModKey(event) && e.which === 221) {
-      insert("blockquote"); // Cmd + ]
-    } else if (isModKey(event) && e.which === 189) {
-      insert("divider"); // Cmd + _
-    } else if (isModKey(event) && e.which === 75) {
-      insert("link"); // Cmd + k
-    }
-
-    if (event.defaultPrevented) {
-      return;
     }
 
     if (event.key === "Enter") {
