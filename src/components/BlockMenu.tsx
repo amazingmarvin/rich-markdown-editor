@@ -12,6 +12,7 @@ import getDataTransferFiles from "../lib/getDataTransferFiles";
 import insertFiles from "../commands/insertFiles";
 import getMenuItems from "../menus/block";
 import baseDictionary from "../dictionary";
+import isModKey from "../lib/isModKey";
 
 const SSR = typeof window === "undefined";
 
@@ -97,6 +98,39 @@ class BlockMenu extends React.Component<Props, State> {
   handleKeyDown = (event: KeyboardEvent) => {
     if (!this.props.isActive) return;
 
+    const insert = (name: string) => {
+      if (this.insert(name)) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+
+    if (event.shiftKey && event.ctrlKey && event.which === 49) {
+      insert("heading1"); // Ctrl + Shift + 1
+    } else if (event.shiftKey && event.ctrlKey && event.which === 50) {
+      insert("heading2"); // Ctrl + Shift + 2
+    } else if (event.shiftKey && event.ctrlKey && event.which === 51) {
+      insert("heading3"); // Ctrl + Shift + 3
+    } else if (event.shiftKey && event.ctrlKey && event.which === 55) {
+      insert("checkbox_list"); // Ctrl + Shift + 7
+    } else if (event.shiftKey && event.ctrlKey && event.which === 56) {
+      insert("bullet_list"); // Ctrl + Shift + 8
+    } else if (event.shiftKey && event.ctrlKey && event.which === 57) {
+      insert("ordered_list"); // Ctrl + Shift + 9
+    } else if (event.shiftKey && event.ctrlKey && event.which === 220) {
+      insert("code_block"); // Ctrl + Shift + \
+    } else if (isModKey(event) && e.which === 221) {
+      insert("blockquote"); // Cmd + ]
+    } else if (isModKey(event) && e.which === 189) {
+      insert("divider"); // Cmd + _
+    } else if (isModKey(event) && e.which === 75) {
+      insert("link"); // Cmd + k
+    }
+
+    if (event.defaultPrevented) {
+      return;
+    }
+
     if (event.key === "Enter") {
       event.preventDefault();
       event.stopPropagation();
@@ -156,6 +190,18 @@ class BlockMenu extends React.Component<Props, State> {
     if (event.key === "Escape") {
       this.close();
     }
+  };
+
+  // Insert an item by name. Returns true if something was inserted.
+  insert = (name) => {
+    const items = this.allItems;
+    for (const item of items) {
+      if (item.name === name || (item.keywords && item.keywords.includes(name)) {
+        this.insertItem(item);
+        return true;
+      }
+    }
+    return false;
   };
 
   insertItem = item => {
@@ -382,7 +428,7 @@ class BlockMenu extends React.Component<Props, State> {
     }
   }
 
-  get filtered() {
+  get allItems() {
     const {
       dictionary,
       embeds,
@@ -408,6 +454,16 @@ class BlockMenu extends React.Component<Props, State> {
       });
       items = items.concat(embedItems);
     }
+    return items;
+  }
+
+  get filtered() {
+    const {
+      search = "",
+      uploadImage,
+      commands,
+    } = this.props;
+    const items = this.allItems;
 
     const filtered = items.filter(item => {
       if (item.name === "separator") return true;
