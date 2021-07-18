@@ -113,7 +113,7 @@ class BlockMenu extends React.Component<Props, State> {
 
     const items = this.allItems;
     for (const item of items) {
-      if (item.shortcut && item.shortcut === shortcut) {
+      if (item.name !== "heading" && item.shortcut && item.shortcut === shortcut) {
         this.insertItem(item);
         event.preventDefault();
         event.stopPropagation();
