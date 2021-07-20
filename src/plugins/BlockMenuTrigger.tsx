@@ -123,7 +123,7 @@ export default class BlockMenuTrigger extends Extension {
                     parent.pos,
                     parent.pos + parent.node.nodeSize,
                     {
-                      class: "placeholder",
+                      class: "placeholder block-menu-trigger-placeholder",
                       "data-empty-text": this.options.dictionary.newLineEmpty,
                     }
                   )
@@ -136,7 +136,7 @@ export default class BlockMenuTrigger extends Extension {
                     parent.pos,
                     parent.pos + parent.node.nodeSize,
                     {
-                      class: "placeholder",
+                      class: "placeholder block-menu-trigger-placeholder",
                       "data-empty-text": `  ${this.options.dictionary.newLineWithSlash}`,
                     }
                   )
