@@ -165,6 +165,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
     defaultValue: "",
     dir: "auto",
     placeholder: "Write something nice…",
+    placeholderClassName: "placeholder",
     onImageUploadStart: () => {
       // no default behavior
     },
@@ -376,6 +377,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
             onClose: this.handleCloseBlockMenu,
           }),
           new Placeholder({
+            emptyNodeClass: this.props.placeholderClassName,
             placeholder: this.props.placeholder,
           }),
           new MaxLength({
