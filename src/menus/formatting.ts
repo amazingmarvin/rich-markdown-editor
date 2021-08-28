@@ -8,6 +8,7 @@ import {
   ItalicIcon,
   BlockQuoteIcon,
   LinkIcon,
+  StrikethroughIcon,
   InputIcon,
 } from "outline-icons";
 import { isInTable } from "prosemirror-tables";
@@ -70,6 +71,13 @@ export default function formattingMenuItems(
       tooltip: dictionary.underline,
       icon: UnderlineIcon,
       active: isMarkActive(schema.marks.underline),
+    },
+    {
+      name: "strikethrough",
+      tooltip: dictionary.strikethrough,
+      icon: StrikethroughIcon,
+      active: isMarkActive(schema.marks.strikethrough),
+      visible: isMarkActive(schema.marks.strikethrough)(state),
     },
     {
       name: "code_inline",
