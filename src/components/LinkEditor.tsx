@@ -303,6 +303,7 @@ class LinkEditor extends React.Component<Props, State> {
           onPaste={this.handlePaste}
           onChange={this.handleChange}
           autoFocus={this.href === ""}
+          type="url"
         />
 
         <ToolbarButton onClick={this.handleOpenLink} disabled={!value}>
