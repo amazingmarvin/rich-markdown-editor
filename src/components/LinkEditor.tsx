@@ -304,6 +304,7 @@ class LinkEditor extends React.Component<Props, State> {
           onChange={this.handleChange}
           autoFocus={this.href === ""}
           type="url"
+          className="link-editor-input"
         />
 
         <ToolbarButton onClick={this.handleOpenLink} disabled={!value}>
