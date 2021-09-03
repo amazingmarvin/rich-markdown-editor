@@ -77,7 +77,6 @@ export default function formattingMenuItems(
       tooltip: dictionary.strikethrough,
       icon: StrikethroughIcon,
       active: isMarkActive(schema.marks.strikethrough),
-      visible: isMarkActive(schema.marks.strikethrough)(state),
     },
     {
       name: "code_inline",
