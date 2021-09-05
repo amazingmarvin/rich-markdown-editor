@@ -26,7 +26,7 @@ export default class Strikethrough extends Mark {
 
   keys({ type }) {
     return {
-      "Mod-d": toggleMark(type),
+      "Shift-Mod-x": toggleMark(type),
     };
   }
 
