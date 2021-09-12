@@ -726,6 +726,10 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
     });
   };
 
+  isFocused = () => {
+    return this.state.isEditorFocused;
+  };
+
   render() {
     const {
       dir,
