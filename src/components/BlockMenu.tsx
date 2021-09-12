@@ -451,6 +451,7 @@ class BlockMenu extends React.Component<Props, State> {
     const {
       search = "",
       uploadImage,
+      canUploadImages,
       commands,
     } = this.props;
     const items = this.allItems;
@@ -467,8 +468,10 @@ class BlockMenu extends React.Component<Props, State> {
         return false;
       }
 
-      // If no image upload callback has been passed, filter the image block out
-      if (!uploadImage && item.name === "image") return false;
+      // If no image upload callback has been passed, or this option is
+      // specifically filtered out via canUploadImages, filter the image block
+      // out
+      if ((!uploadImage || !canUploadImages) && item.name === "image") return false;
 
       // some items (defaultHidden) are not visible until a search query exists
       if (!search) return !item.defaultHidden;

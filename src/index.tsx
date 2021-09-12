@@ -166,6 +166,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
     dir: "auto",
     placeholder: "Write something nice…",
     placeholderClassName: "placeholder",
+    canUploadImages: true,
     onImageUploadStart: () => {
       // no default behavior
     },
@@ -792,6 +793,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
                   search={this.state.blockMenuSearch}
                   onClose={this.handleCloseBlockMenu}
                   uploadImage={this.props.uploadImage}
+                  canUploadImages={this.props.uploadImage && this.props.canUploadImages}
                   onLinkToolbarOpen={this.handleOpenLinkMenu}
                   onImageUploadStart={this.props.onImageUploadStart}
                   onImageUploadStop={this.props.onImageUploadStop}
