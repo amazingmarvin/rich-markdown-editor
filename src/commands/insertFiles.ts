@@ -78,7 +78,9 @@ const insertFiles = function(view, event, pos, files, options) {
         newImg.src = src;
       })
       .catch(error => {
-        console.error(error);
+        if (error) {
+          console.error(error);
+        }
 
         // cleanup the placeholder if there is a failure
         const transaction = view.state.tr.setMeta(uploadPlaceholderPlugin, {
@@ -87,7 +89,7 @@ const insertFiles = function(view, event, pos, files, options) {
         view.dispatch(transaction);
 
         // let the user know
-        if (onShowToast) {
+        if (onShowToast && error) {
           onShowToast(dictionary.imageUploadError, ToastType.Error);
         }
       })
