@@ -1,15 +1,16 @@
 import {
+  BlockQuoteIcon,
   BoldIcon,
   BulletedListIcon,
   CodeIcon,
   Heading1Icon,
   Heading2Icon,
   Heading3Icon,
+  InputIcon,
   ItalicIcon,
-  BlockQuoteIcon,
   LinkIcon,
   StrikethroughIcon,
-  InputIcon,
+  TodoListIcon,
 } from "outline-icons";
 import { isInTable } from "prosemirror-tables";
 import { EditorState } from "prosemirror-state";
@@ -125,6 +126,13 @@ export default function formattingMenuItems(
       tooltip: dictionary.bulletList,
       icon: BulletedListIcon,
       active: isNodeActive(schema.nodes.bullet_list),
+      visible: allowBlocks,
+    },
+    {
+      name: "checkbox_list",
+      tooltip: dictionary.checkboxList,
+      icon: TodoListIcon,
+      active: isNodeActive(schema.nodes.checkbox_list),
       visible: allowBlocks,
     },
     {
