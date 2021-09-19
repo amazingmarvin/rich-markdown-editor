@@ -733,6 +733,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
   render() {
     const {
       dir,
+      spellcheck,
       readOnly,
       readOnlyWriteCheckboxes,
       style,
@@ -758,6 +759,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
             <StyledEditor
               dir={dir}
               rtl={isRTL}
+              spellcheck={spellcheck}
               readOnly={readOnly}
               readOnlyWriteCheckboxes={readOnlyWriteCheckboxes}
               ref={ref => (this.element = ref)}
