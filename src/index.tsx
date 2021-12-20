@@ -62,7 +62,6 @@ import Underline from "./marks/Underline";
 
 // plugins
 import BlockMenuTrigger from "./plugins/BlockMenuTrigger";
-import Folding from "./plugins/Folding";
 import History from "./plugins/History";
 import Keys from "./plugins/Keys";
 import MaxLength from "./plugins/MaxLength";
@@ -361,7 +360,6 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
           new Strikethrough(),
           new OrderedList(),
           new History(),
-          new Folding(),
           new SmartText(),
           new TrailingNode(),
           new PasteHandler(),
