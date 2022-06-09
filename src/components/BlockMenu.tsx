@@ -186,7 +186,7 @@ class BlockMenu extends React.Component<Props, State> {
   insert = (name) => {
     const items = this.allItems;
     for (const item of items) {
-      if (item.name === name || (item.keywords && item.keywords.includes(name)) {
+      if (item.name === name || (item.keywords && item.keywords.includes(name))) {
         this.insertItem(item);
         return true;
       }
