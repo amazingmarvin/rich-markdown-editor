@@ -31,6 +31,7 @@ type Props = {
   dictionary: typeof baseDictionary;
   view: EditorView;
   search: string;
+  canUploadImages?: boolean;
   uploadImage?: (file: File) => Promise<string>;
   onImageUploadStart?: () => void;
   onImageUploadStop?: () => void;

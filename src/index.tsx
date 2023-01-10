@@ -70,7 +70,8 @@ import SmartText from "./plugins/SmartText";
 import TrailingNode from "./plugins/TrailingNode";
 import PasteHandler from "./plugins/PasteHandler";
 
-export { schema, parser, serializer, renderToHtml } from "./server";
+import { schema, parser, serializer, renderToHtml } from "./server";
+export { schema, parser, serializer, renderToHtml };
 
 export { default as Extension } from "./lib/Extension";
 
@@ -125,10 +126,11 @@ export type Props = {
   handleDOMEvents?: {
     [name: string]: (view: EditorView, event: Event) => boolean;
   };
+  canUploadImages?: boolean;
   uploadImage?: (file: File) => Promise<string>;
   onBlur?: () => void;
   onFocus?: () => void;
-  onSave?: ({ done: boolean }) => void;
+  onSave?: (obj: { done: boolean }) => void;
   onCancel?: () => void;
   onChange?: (value: () => string) => void;
   onImageUploadStart?: () => void;
@@ -143,7 +145,9 @@ export type Props = {
   onShowToast?: (message: string, code: ToastType) => void;
   tooltip: typeof React.Component | React.FC<any>;
   className?: string;
+  placeholderClassName?: string;
   style?: React.CSSProperties;
+  spellcheck?: boolean;
 };
 
 type State = {
@@ -757,7 +761,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
             <StyledEditor
               dir={dir}
               rtl={isRTL}
-              spellcheck={spellcheck}
+              spellCheck={spellcheck}
               readOnly={readOnly}
               readOnlyWriteCheckboxes={readOnlyWriteCheckboxes}
               ref={ref => (this.element = ref)}
