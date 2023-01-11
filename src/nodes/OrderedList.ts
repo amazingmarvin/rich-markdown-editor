@@ -57,7 +57,8 @@ export default class OrderedList extends Node {
   toMarkdown(state, node) {
     state.write("\n");
 
-    const start = node.attrs.order !== undefined ? node.attrs.order : 1;
+    const order = node.attrs.order;
+    const start = order !== undefined && order !== null ? order : 1;
     const maxW = `${start + node.childCount - 1}`.length;
     const space = state.repeat(" ", maxW + 2);
 
