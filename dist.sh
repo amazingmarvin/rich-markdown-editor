@@ -12,3 +12,6 @@ git add .gitignore dist
 git commit -m "Add dist files."
 git push origin production --force
 git checkout master
+
+git tag -a "R$(date '+%Y-%m-%d-%H-%M')" -m "Release $(date '+%Y-%m-%d %H:%M')"
+git push --tags
