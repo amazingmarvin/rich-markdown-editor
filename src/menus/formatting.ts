@@ -6,6 +6,7 @@ import {
   Heading1Icon,
   Heading2Icon,
   Heading3Icon,
+  Heading4Icon,
   InputIcon,
   ItalicIcon,
   LinkIcon,
@@ -111,6 +112,14 @@ export default function formattingMenuItems(
       icon: Heading3Icon,
       active: isNodeActive(schema.nodes.heading, { level: 3 }),
       attrs: { level: 3 },
+      visible: allowBlocks,
+    },
+    {
+      name: "heading",
+      tooltip: dictionary.subheading,
+      icon: Heading4Icon,
+      active: isNodeActive(schema.nodes.heading, { level: 4 }),
+      attrs: { level: 4 },
       visible: allowBlocks,
     },
     {

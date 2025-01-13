@@ -5,6 +5,7 @@ import {
   Heading1Icon,
   Heading2Icon,
   Heading3Icon,
+  Heading4Icon,
   HorizontalRuleIcon,
   OrderedListIcon,
   PageBreakIcon,
@@ -50,6 +51,14 @@ export default function blockMenuItems(
       icon: Heading3Icon,
       shortcut: "Ctrl + ⇧ + 3",
       attrs: { level: 3 },
+    },
+    {
+      name: "heading",
+      title: dictionary.h4,
+      keywords: "h4 heading4",
+      icon: Heading4Icon,
+      shortcut: "Ctrl + ⇧ + 4",
+      attrs: { level: 4 },
     },
     {
       name: "separator",

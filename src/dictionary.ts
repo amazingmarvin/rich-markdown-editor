@@ -28,6 +28,7 @@ export const base = {
   h1: "Big heading",
   h2: "Medium heading",
   h3: "Small heading",
+  h4: "Smaller heading",
   heading: "Heading",
   hr: "Divider",
   image: "Image",
