@@ -8675,10 +8675,10 @@ os-browserify@^0.3.0:
   resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
   integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
 
-outline-icons@^1.26.1:
-  version "1.26.1"
-  resolved "https://registry.yarnpkg.com/outline-icons/-/outline-icons-1.26.1.tgz#2c0f70684c79867600efc2c7e81ab19fd06ffd2c"
-  integrity sha512-2ekmDmHGpqQo2QgjqpX5GZW+YxEH6dk2xKEafqjQ20oR+TJSwnuuj1fQSfC4IsgkzEZvjl4TlA0DHdljnJUb2A==
+outline-icons@3.10.0:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/outline-icons/-/outline-icons-3.10.0.tgz#625ee232a807ccbc1cca2eda87849cf77ca25160"
+  integrity sha512-LSHIlZRgNtFoFHj5lDG6hfflNpVpO5kQl/jV7dYSytTcVVjfOECEDACSFsQ34JP7HT1vFaubp1EZSVrKFnIyVw==
 
 overlayscrollbars@^1.13.1:
   version "1.13.1"
