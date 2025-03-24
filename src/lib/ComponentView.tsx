@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, Root } from "react-dom/client";
 import { ThemeProvider } from "styled-components";
 import { EditorView, Decoration } from "prosemirror-view";
 import Extension from "../lib/Extension";
@@ -25,6 +25,7 @@ export default class ComponentView {
   decorations: Decoration<{ [key: string]: any }>[];
   isSelected = false;
   dom: HTMLElement | null;
+  root: Root | null;
 
   // See https://prosemirror.net/docs/ref/#view.NodeView
   constructor(
@@ -58,9 +59,11 @@ export default class ComponentView {
       getPos: this.getPos,
     });
 
-    this.root.render(
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    );
+    if (this.root) {
+      this.root.render(
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      );
+    }
   }
 
   update(node) {
