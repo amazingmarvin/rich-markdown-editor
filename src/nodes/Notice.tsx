@@ -1,8 +1,5 @@
 import { wrappingInputRule } from "prosemirror-inputrules";
 import toggleWrap from "../commands/toggleWrap";
-import { WarningIcon, InfoIcon, StarredIcon } from "outline-icons";
-import * as React from "react";
-import { createRoot } from "react-dom/client";
 import Node from "./Node";
 
 export default class Notice extends Node {
@@ -33,13 +30,9 @@ export default class Notice extends Node {
         {
           tag: "div.notice-block",
           preserveWhitespace: "full",
-          contentElement: "div:last-child",
+          contentElement: "div.content",
           getAttrs: (dom: HTMLDivElement) => ({
-            style: dom.className.includes("tip")
-              ? "tip"
-              : dom.className.includes("warning")
-              ? "warning"
-              : undefined,
+            style: dom.dataset.style || "info",
           }),
         },
       ],
@@ -55,26 +48,27 @@ export default class Notice extends Node {
           select.appendChild(option);
         });
 
-        let component;
+        // Create icon element with fa glyphs
+        const icon = document.createElement("i");
+        icon.contentEditable = "false";
 
+        // Use Unicode symbols for icons
         if (node.attrs.style === "tip") {
-          component = <StarredIcon color="currentColor" />;
+          icon.className = "fa fa-star mt-1 mr-1 self-start";
         } else if (node.attrs.style === "warning") {
-          component = <WarningIcon color="currentColor" />;
+          icon.className = "fa fa-exclamation-triangle mt-1 mr-1 self-start";
         } else {
-          component = <InfoIcon color="currentColor" />;
+          icon.className = "fa fa-info-circle mt-1 mr-1 self-start";
         }
-
-        const icon = document.createElement("div");
-        icon.className = "icon";
-        const root = createRoot(icon);
-        root.render(component);
 
         return [
           "div",
-          { class: `notice-block ${node.attrs.style}` },
+          {
+            class: `notice-block ${node.attrs.style}`,
+            "data-style": node.attrs.style
+          },
           icon,
-          ["div", { contentEditable: false }, select],
+          ["div", { contentEditable: false, class: "notice-select" }, select],
           ["div", { class: "content" }, 0],
         ];
       },
